@@ -2,26 +2,21 @@
 using std::cin;
 using std::cout;
 
-int doubleDigitValue(int digit){
-  int doubledDigit = digit * 2;
-  int sum;
-
-  if (doubledDigit >= 10) {
-    sum = 1 + doubledDigit % 10;
-  } else {
-      sum = doubledDigit;
-  }
-  return sum;
-}
-
 int main(){
-  int digit;
-  int sum;
-  cout << "Enter a single digit number, 0-9: ";
-  cin  >> digit;
+  char digit;
+  int  checksum = 0;
+  cout << "Enter a six-digit number: ";
+  for (int position = 1; position <= 6; position++) {
+    cin  >> digit;
+    checksum += digit - '0';
+  }
 
-  sum = doubleDigitValue(digit);
-  cout << "Sum of digits in doubled number: " << sum << "\n";
+  cout << "Checksum is " << checksum << ". \n";
+  if (checksum % 10 == 0) {
+    cout << "Checksum is divisible by 10. Valid. \n";
+  } else {
+    cout << "Checksum is not divisible by 10. Invalid. \n";
+  }
 }
 
 
