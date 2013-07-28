@@ -13,11 +13,15 @@ int doubleDigitValue(int digit){
 int main(){
   char digit;
   int  checksum = 0;
+  int  position = 1;
   cout << "Enter a six-digit number: ";
-  for (int position = 1; position <= 6; position++) {
-    cin  >> digit;
+  digit = cin.get();
+  /* until get the charcode of Enter */
+  while (digit != 10) {
     if (position % 2 == 0) checksum += digit - '0';
       else checksum += doubleDigitValue(digit - '0');
+      digit = cin.get();
+      position++;
   }
 
   cout << "Checksum is " << checksum << ". \n";
